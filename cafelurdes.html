@@ -394,44 +394,268 @@
     <div class="row">
       <h2 class="centered">Get In Touch</h2>
       <hr>  
-    </div>
-    <div class="row">
-      <div class="col-md-7">
-	  <strong>Please give us your feedback!</strong>
-        <p>Always happy do hear from you!</p>
-        <form id="contact" method="post" class="form" role="form">
-          <div class="row">
-            <div class="col-md-12 form-group">
-              <input class="form-control" id="name" name="name" placeholder="Name" type="text" required />
-            </div>
-            <div class="col-md-12 form-group">
-              <input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
-            </div>
-			 <div class="col-md-12 form-group">
-              <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>             
-              <button class="btn btn-lg pull-left" type="submit">Send Message</button>
-            </div>
-          </div>
-          
-        </form>
-        <!-- form --> 
+   <body>
+   <style>
+      html, body {
+      min-height: 70%;
+      }
+      body, div, form, input, select { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1, h4 {
+ margin: 15px 0 4px;
+      font-weight: 400;
+      }
+      span {
+      color: red;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 3px;
+      }
+      form {
+      width: 84%;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 5px #E89A2F; 
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      vertical-align: center;
+      }
+      input:hover, textarea:hover, select:hover {
+      outline: none;
+      border: 1px solid #E89A2F;
+      }
+      .name input {
+      margin-bottom: 10px;
+      }
+      select {
+      padding: 7px 0;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      background: #fff
 
-      </div>
-	  <div class="col-md-5">
-	  
-	  <i class="fa fa-map-marker fa-2x"></i>
-        <strong>Local</strong>
-		<p>Rua da Stora<br>
-          Guimarães, Portugal</p>
-          
-      <br/> 
-	  <i class="fa fa-envelope-o fa-2x"></i>
-        <p>info@cafelurdes.pt</p>
-        
-       <br/> 
-	  <i class="fa fa-phone fa-2x"></i>
-        <p> +351 914706854</p>
-        
+      }
+      option {
+      background: #fff;
+      }
+      select, table {
+      width: 100%;
+      }
+      .day-visited, .time-visited {
+      position: relative;
+      }
+      .day-visited input, .time-visited input {
+      width: calc(100% - 12px);
+      background: #fff;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+ }
+      input[type="time"]::-webkit-inner-spin-button {
+      margin: 2px 22px 0 0;
+      }
+      .day-visited i, .time-visited i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      top: 8px;
+      font-size: 20px;
+      }
+      .day-visited i, .time-visited i {
+      right: 5px;
+      z-index: 1;
+      color: #a9a9a9;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 0;
+      z-index: 2;
+      opacity: 0;
+      }
+      .question-answer label {
+      display: block;
+      padding: 0 20px 10px 0;
+      }
+      .question-answer input {
+      width: auto;
+      margin-top: -2px;
+      }
+      th, td {
+      width: 18%;
+      padding: 15px 0;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+      vertical-align: unset;
+      line-height: 18px;
+      font-weight: 400;
+      word-break: break-all;
+      }
+      .first-col {
+      width: 25%;
+      text-align: left;
+      }
+      textarea {
+      width: calc(100% - 6px);
+      }
+      .btn-block {
+      margin-top: 20px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      -webkit-border-radius: 5px; 
+-moz-border-radius: 5px; 
+      border-radius: 5px; 
+      background-color: #80BAC2;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background-color: #FAB880;
+      }
+      @media (min-width: 568px) {
+      .name {
+      display: flex;
+      justify-content: space-between;
+      }
+      .name input {
+      width: 47%;
+      margin-bottom: 0;
+      }
+      th, td {
+      word-break: keep-all;
+      }
+      }
+    </style>
+
+    <div class="testbox">
+      <form action="/">
+        <h1>Give us your feedback!</h1>
+        <p>Please help us improve our restaurant services by filling in our feedback form. Thank you!</p>
+        <h4 align="left">Name<span>*</span></h4>
+        <div class="name">
+          <input type="text" name="name" placeholder="First" />
+          <input type="text" name="name" placeholder="Last" />
+        </div>
+        <h4 align="left">Email<span>*</span></h4>
+        <input type="text" name="name" />
+        <h4 align="left">Location You Visited<span>*</span></h4>
+        <select>
+          <option class="disabled" value="location" disabled selected>*Please Select*</option>
+          <option value="1">New York</option>
+          <option value="2">Guimarães</option>
+          <option value="3">London </option>
+          <option value="4">Sydney</option>
+          <option value="5">Paris</option>
+        </select>
+        <h4 align="left">Day Visited<span>*</span></h4>
+        <div class="day-visited">
+          <input type="date" name="dayvisited" required/>
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <h4 align="left"> Time Visited<span>*</span></h4>
+ <div class="time-visited">
+          <input type="time" name="timevisited" required/>
+          <i class="fas fa-clock"></i>
+        </div>
+
+        <h4 align="left">  Age<span>*</span></h4>
+        <select>
+          <option class="disabled" value="location" disabled selected>*Please Select*</option>
+          <option value="under 13">Under 13</option>
+          <option value="13-17">13-17</option>
+          <option value="18-24">18-24</option>
+          <option value="25-34">25-34</option>
+          <option value="35-44">35-44</option>
+          <option value="45-54">45-54</option>
+          <option value="55 or older">55 or older</option>
+        </select>
+  
+        <table>
+          <tr>
+            <th class="first-col"></th>
+            <th>Really amazing</th>
+            <th>Overall good :)</th>
+            <th>Pretty decent</th>
+            <th>Disappointing :'/</th>
+          </tr>
+          <tr>
+            <td class="first-col">Food Quality</td>
+            <td><input type="radio" value="none" name="Food" /></td>
+            <td><input type="radio" value="none" name="Food" /></td>
+            <td><input type="radio" value="none" name="Food" /></td>
+            <td><input type="radio" value="none" name="Food" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Overall Service Quality</td>
+            <td><input type="radio" value="none" name="Service" /></td>
+            <td><input type="radio" value="none" name="Service" /></td>
+            <td><input type="radio" value="none" name="Service" /></td>
+            <td><input type="radio" value="none" name="Service" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Speed of Service</td>
+            <td><input type="radio" value="none" name="Speed" /></td>
+            <td><input type="radio" value="none" name="Speed" /></td>
+            <td><input type="radio" value="none" name="Speed" /></td>
+            <td><input type="radio" value="none" name="Speed" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Price</td>
+            <td><input type="radio" value="none" name="Price" /></td>
+            <td><input type="radio" value="none" name="Price" /></td>
+            <td><input type="radio" value="none" name="Price" /></td>
+            <td><input type="radio" value="none" name="Price" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Overall Experience</td>
+            <td><input type="radio" value="none" name="Experience" /></td>
+            <td><input type="radio" value="none" name="Experience" /></td>
+            <td><input type="radio" value="none" name="Experience" /></td>
+            <td><input type="radio" value="none" name="Experience" /></td>
+          </tr>
+        </table>
+        <h4>Any comments, questions or suggestions?</h4>
+        <textarea rows="5"></textarea>
+        <div class="btn-block">
+          <button type="submit" href="/">Send Feedback</button>
+        </div>
+      </form>
+    </div>
+  </body>
+        </form>
+        </br>
+        <!-- form -->
+<div class="container">
+	<div class="row">
+        <div class="col-sm-4">
+	        <i class="fa fa-map-marker fa-2x"></i>
+                <strong>Main location</strong>
+		            <p>Rua da Stora<br>
+                     Guimarães, Portugal</p>
+         </div>
+           <div class="col-sm-4">
+	      <i class="fa fa-envelope-o fa-2x"></i>
+             <p>info@cafelurdes.pt</p>
+                </div>
+                
+            <i class="fa fa-phone fa-2x"></i>
+         <p> +351 914706854</p>
+        </div>
 	  </div>
     </div>    
 <!-- row --> 

@@ -84,37 +84,180 @@
 						</div>
 	                <div class="row">
 				<div class="col-md-6">				  	
-				 <!-- Form itself -->
-          <form name="sentMessage" id="contactForm"  novalidate>
-	       <h3>Let us know</h3>
-		 <div class="control-group">
-                    <div class="controls">
-			<input type="text" class="form-control" 
-			   	   placeholder="Full Name" id="name" required
-			           data-validation-required-message="Please enter your name" />
-			  <p class="help-block"></p>
-		   </div>
-	         </div> 	
-                <div class="control-group">
-                  <div class="controls">
-			<input type="email" class="form-control" placeholder="Email" 
-			   	            id="email" required
-			   		   data-validation-required-message="Please enter your email" />
-		</div>
-	    </div> 	
-			  
-               <div class="control-group">
-                 <div class="controls">
-				 <textarea rows="10" cols="100" class="form-control" 
-                       placeholder="Message" id="message" required
-		       data-validation-required-message="Please enter your message" minlength="5" 
-                       data-validation-minlength-message="Min 5 characters" 
-                        maxlength="999" style="resize:none"></textarea>
-		</div>
-               </div> 		 
-	     <div id="success"> </div> <!-- For success/fail messages -->
-	    <button type="submit" class="btn btn-primary pull-right">Send :)</button><br />
-          </form>
+				 <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, textarea, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      line-height: 42px;
+      font-size: 42px;
+      color: #050404;
+      z-index: 2;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      span.required {
+      margin-left: 0;
+      color: red;
+      }
+
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 25px 0 #E89A42; 
+      }
+      .banner {
+      position: relative;
+      height: 300px;
+      background-image: url("#");  
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: #FAB880; 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      input[type="date"] {
+      padding: 4px 5px;
+      }
+      select {
+      width: 100%;
+      padding: 7px 0;
+      background: transparent;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+          .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 6px 0 #E89A2F;
+      color: #d6e0f5;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color: #a9a9a9;
+      }
+      .item i {
+      right: 2%;
+      top: 28px;
+      z-index: 1;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 1%;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background: #80BAC2;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background: #FAB880;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+          }
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="/">
+        <div class="banner">
+          <h1>Reservation Form</h1>
+        </div>
+        <div class="item">
+          <p>Name<span class="required">*</span></p>          <div class="name-item">
+            <input type="text" name="name" placeholder="First" />
+            <input type="text" name="name" placeholder="Last" />
+          </div>
+        </div>
+        <div class="item">
+          <p>Email<span class="required">*</span></p>
+          <input type="email" name="email"/>
+        </div>
+        <div class="item">
+          <p>Phone</p>
+          <input type="text" name="phone" placeholder="### ### ###"/>
+        </div>
+        <div class="item">
+          <p>Reservation Date<span class="required">*</span></p>
+          <input type="date" name="bdate" required/>
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+   <div class="item">
+          <p>Reservation Time<span class="required">*</span></p>
+          <input type="time" name="btime" required/>
+               </div>
+        <div class="item">
+          <p>How many people will you be with?<span class="required">*</span></p>
+          <input type="text" name="language"/>
+        </div>
+         <div class="item">
+          <p>Additional notes</p>
+          <textarea rows="3"></textarea>
+        </div>
+         <div class="btn-block">
+          <button type="submit" href="/">Send</button>
+        </div>
+      </form>
+    
+    </div>
 					</div>			
 							<div class="col-md-6">
 					<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
